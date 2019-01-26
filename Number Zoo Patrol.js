@@ -1,4 +1,9 @@
-// return the missing number!
+// Number Zoo Patrol  https://www.codewars.com/kata/number-zoo-patrol/train/javascript
+
+//Write a function that takes a shuffled array of unique numbers from 1 to n with one element missing 
+//(which can be any number including n). Return this missing number.
+
+
 function findNumber(array) {
     array = array.sort((a, b) => a - b);
 
