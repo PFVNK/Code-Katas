@@ -10,18 +10,19 @@ function iqTest(numbers) {
   let odd = 0
   let even = 0
 
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) {
-      even += 1
-    } else {
-      odd += 1
-    }
-  }
+  numbers = numbers.split(' ').map(Number)
+
+  numbers.map(x => x % 2 === 0 ? even++ : odd++)
 
   if (even > odd) {
-    numbers = numbers.split(' ').map(Number)
     for (let i = 0; i < numbers.length; i++) {
       if (numbers[i] % 2 !== 0) {
+        return i + 1
+      }
+    }
+  } else {
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 === 0) {
         return i + 1
       }
     }
