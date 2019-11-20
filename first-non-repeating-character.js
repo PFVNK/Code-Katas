@@ -4,48 +4,16 @@
 
 
 
-function firstNonRepeatingLetter(s) {
-  let letters = {}
-  let unique = []
-  s = s.match(/[a-zA-Z∞§ﬁ›ﬂ∞§0-9,]/g)
 
-  for (i = 0; i < s.length; i++) {
-    let letter = s[i]
-    if (letters[letter]) {
-      letters[letter]++
-    } else {
-      letters[letter] = 1
-    }
-  }
+const firstNonRepeatingLetter = s => {
+  const index = s
+    .toLowerCase()
+    .split('')
+    .findIndex((char, _, s) => s.indexOf(char) === s.lastIndexOf(char))
 
-  letters = Object.entries(letters)
-
-  for (const [letter, count] of letters) {
-    if (count === 1) {
-      unique.push(letter)
-    }
-  }
-
-  if (unique.length === 0) {
-    return ''
-  }
-
-  if (!unique[0].match(/[a-zA-Z]/)) {
-    return unique[0]
-  }
-
-  let upperCase = unique.filter(x => x === x.toUpperCase())
-
-  console.log(upperCase)
-
-  if (upperCase.length > 0) {
-    return upperCase.shift()
-  } else if (unique.length > 0) {
-    return unique.shift()
-  } else {
-    return ''
-  }
+  return index === -1 ? '' : s[index]
 }
+
 
 
 // console.log(firstNonRepeatingLetter('a'), 'a');
