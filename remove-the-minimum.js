@@ -6,14 +6,10 @@
 
 function removeSmallest(numbers) {
   if (numbers.length > 0) {
-    let smallest = [...numbers].sort().shift()
-
+    let smallest = [...numbers].sort((a, b) => a - b).shift()
     let smallIndex = numbers.findIndex(x => x === smallest)
-
     return [...numbers].filter((number, index) => index !== smallIndex)
-
   } else {
-
     return []
   }
 }
@@ -23,4 +19,6 @@ function removeSmallest(numbers) {
 console.log(removeSmallest([1, 2, 3, 4, 5]), [2, 3, 4, 5]);
 console.log(removeSmallest([5, 3, 2, 1, 4]), [5, 3, 2, 4]);
 console.log(removeSmallest([2, 2, 1, 2, 1]), [2, 2, 2, 1]);
+console.log(removeSmallest([391, 51]), [51]);
+console.log(removeSmallest([71, 387, 103, 99]), [387, 103, 99]);
 console.log(removeSmallest([]), []);
