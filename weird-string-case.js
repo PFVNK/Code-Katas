@@ -5,15 +5,17 @@
 
 
 function toWeirdCase(string) {
-  return string.split(' ').map(word => word.split('').map((letter, index) => index % 2 === 0 ? letter.toUpperCase() : letter.toLowerCase()).join('')).join(' ')
+  return string
+    .split(' ')
+    .map(word => word
+      .split('')
+      .map(
+        (letter, index) =>
+          index % 2 === 0 ? letter.toUpperCase() : letter.toLowerCase())
+      .join(''))
+    .join(' ')
 }
 
-
-// function toWeirdCase(string) {
-//   return [...string].map((letter, index) => index % 2 === 0 ? letter.toUpperCase() : letter).join('')
-// }
-
-// let toWeirdCase = string => [...string].map((letter, index) => index % 2 === 0 ? letter.toUpperCase() : letter).join('')
 
 
 console.log(toWeirdCase('This'), 'ThIs');
