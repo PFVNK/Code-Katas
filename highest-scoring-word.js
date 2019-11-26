@@ -7,38 +7,26 @@
 
 
 function high(x) {
-  let alphabet = new Array(26).fill(1).map((_, i) => String.fromCharCode(97 + i))
-  let numbers = [...Array(26).keys()].map(x => ++x)
-  let alphaNum = []
+  const wordList = x.split(' ');
 
-  for (i = 0; i < x.length; i++) {
-    let letter = x[i]
-
-    for (j = 0; j < alphabet.length; j++) {
-      let alphaLetter = alphabet[j]
-
-      if (alphaLetter === letter) {
-        let alphaIndex = alphabet.indexOf(alphaLetter)
-
-        alphaNum.push(numbers[alphaIndex])
-      }
-    }
+  const getScore = (word) => {
+    return word.split('').reduce((prevScore, currWord) => prevScore + currWord.charCodeAt(0) - 96, 0)
   }
 
-  return alphaNum.reduce((a, b) => a + b)
+  const scoreList = wordList.map(word => getScore(word));
+
+  let highestIndex = 0;
+  let highestScore = 0;
+  scoreList.forEach((score, i) => {
+    if (score > highestScore) {
+      highestIndex = i;
+      highestScore = score;
+    }
+  });
+
+  return wordList[highestIndex];
 }
 
-// function high(x) {
-//   let alphabet = new Array(26).fill(1).map((_, i) => String.fromCharCode(97 + i))
-//   let numbers = [...Array(26).keys()].map(x => ++x)
-//   let splitStr = x.split(' ')
-
-//   for (i = 0; i < splitStr.length; i++) {
-//     console.log([splitStr[i]])
-//   }
-
-
-// }
 
 
 // console.log(high('man i need a taxi up to ubud'), 'taxi');
