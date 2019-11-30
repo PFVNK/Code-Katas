@@ -17,10 +17,13 @@ function stray(numbers) {
 
   for (const [number, amount] of Object.entries(unique)) {
     if (amount === 1) {
-      return number
+      return Number(number)
     }
   }
 }
+
+
+const stray = nums => nums.reduce((a, b) => a ^ b);
 
 
 
