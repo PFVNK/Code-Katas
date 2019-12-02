@@ -22,7 +22,7 @@ function dashatize(num) {
   }
 
   if (numbers.length < 2) {
-    return Math.abs(num)
+    return Math.abs(num).toString()
   }
 
   for (i = 0; i < numbers.length; i++) {
@@ -35,9 +35,9 @@ function dashatize(num) {
     }
   }
 
-  if (dashed.join('').endsWith(-)) {
+  if (dashed.join('').endsWith('-')) {
     let answer = dashed.join('')
-    return answer.slice(answer.length - 1)
+    return answer.slice(0, answer.length - 1)
   } else {
     return dashed.join('')
   }
