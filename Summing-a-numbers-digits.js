@@ -5,13 +5,12 @@
 
 
 function sumDigits(number) {
-  if (number > 0) {
+  if (number !== 0) {
     number = Math.abs(number)
     return number.toString().split('').reduce((a, n) => +a + +n)
   } else {
     return 0
   }
-
 }
 
 
