@@ -27,6 +27,14 @@ function points(games) {
   return pointTotal
 }
 
+let points = games => games.reduce((output, number) => {
+  return output += number[0] > number[2] ?
+    3 :
+    number[0] === number[2] ?
+      1 :
+      0
+}, 0)
+
 
 
 console.log(points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"]), 30);
