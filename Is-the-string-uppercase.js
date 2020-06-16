@@ -5,12 +5,15 @@
 
 
 String.prototype.isUpperCase = function () {
-  if (this === this.toUpperCase()) {
+  if (this == this.toUpperCase()) {
     return true
   } else {
     return false
   }
 }
 
+String.prototype.isUpperCase = function () {
+  return this == this.toUpperCase() ? true : false
+}
 
 
