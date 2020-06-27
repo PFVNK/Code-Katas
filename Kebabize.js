@@ -11,16 +11,18 @@ function kebabize(str) {
 
   for (i = 0; i < str.length; i++) {
     if (str[i] === str[i].toUpperCase()) {
-      kabab.push(`-${str[i].toLowerCase()}`)
+      kabab.push('-')
+      kabab.push(str[i].toLowerCase())
     } else {
       kabab.push(str[i])
     }
   }
 
-  return kabab.join('')
+  return kabab[0] === '-' ? kabab.slice(1).join('') : kabab.join('')
 }
 
 
 
 console.log(kebabize('myCamelCasedString'), 'my-camel-cased-string');
 console.log(kebabize('myCamelHas3Humps'), 'my-camel-has-humps');
+console.log(kebabize('SO2Kc'), 's-o-kc');
