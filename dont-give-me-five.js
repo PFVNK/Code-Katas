@@ -1,8 +1,5 @@
 //dont-give-me-five   https://www.codewars.com/kata/dont-give-me-five/train/javascript
 
-//description: In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it
-
-
 
 function dontGiveMeFive(start, end) {
   let allNums = []
@@ -14,7 +11,7 @@ function dontGiveMeFive(start, end) {
   for (i = 0; i < allNums.length; i++) {
     let number = allNums[i]
 
-    if (number !== 5 && number !== 10 && number / 5 !== parseInt(number) || number === 1) {
+    if (!number.toString().split('').includes('5')) {
       filteredNums += 1
     }
   }
@@ -23,6 +20,6 @@ function dontGiveMeFive(start, end) {
 }
 
 
-
 console.log(dontGiveMeFive(1, 9), 8);
 console.log(dontGiveMeFive(4, 17), 12);
+console.log(dontGiveMeFive(1, 90), 72);
