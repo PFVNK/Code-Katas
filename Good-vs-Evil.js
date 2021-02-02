@@ -3,16 +3,46 @@
 
 
 function goodVsEvil(good, evil) {
-  let goodNums = good.split(' ').reduce((acc, num) => +num + +acc)
-  let evilNums = evil.split(' ').reduce((acc, num) => +num + +acc)
+  let goodNums = good.split(' ')
+  let evilNums = evil.split(' ')
 
-  if (goodNums > evilNums) {
-    return "Battle Result: Good triumphs over Evil"
-  } else if (evilNums > goodNums) {
-    return 'Battle Result: Evil eradicates all trace of Good'
-  } else if (evilNums === goodNums) {
-    return 'Battle Result: No victor on this battle field'
+  let goodArmy = [1, 2, 3, 3, 4, 10]
+  let evilArmy = [1, 2, 2, 2, 3, 5, 10]
+
+  let goodPoints = 0
+  let evilPoints = 0
+
+  for (let i = 0; i < goodNums.length; i++) {
+    let num = +goodNums[i]
+
+    if (num > 0) {
+      goodPoints += num * goodArmy[i]
+    }
   }
+
+  for (let i = 0; i < evilNums.length; i++) {
+    let num = +evilNums[i]
+
+    if (num > 0) {
+      evilPoints += num * evilArmy[i]
+    }
+  }
+
+  return goodPoints > evilPoints ? 'Battle Result: Good triumphs over Evil' :
+    evilPoints > goodPoints ? 'Battle Result: Evil eradicates all trace of Good' :
+      'Battle Result: No victor on this battle field'
+}
+
+function goodVsEvil(good, evil) {
+  let goodArmy = [1, 2, 3, 3, 4, 10]
+  let evilArmy = [1, 2, 2, 2, 3, 5, 10]
+
+  let goodNum = good.split(' ').map((num, i) => +num * goodArmy[i]).reduce((acc, num) => num + acc)
+  let evilNum = evil.split(' ').map((num, i) => +num * evilArmy[i]).reduce((acc, num) => num + acc)
+
+  if (goodNum > evilNum) return 'Battle Result: Good triumphs over Evil'
+  if (evilNum > goodNum) return 'Battle Result: Evil eradicates all trace of Good'
+  return 'Battle Result: No victor on this battle field'
 }
 
 
