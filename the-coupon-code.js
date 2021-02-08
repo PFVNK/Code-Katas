@@ -5,15 +5,15 @@
 
 
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
-  console.log(currentDate)
-  if (enteredCode === correctCode) {
-    return true
-  } else {
-    return false
-  }
+  let today = new Date(currentDate)
+  let expiration = new Date(expirationDate)
+
+  return enteredCode === correctCode && today < expiration ? true : false
 }
 
 
 
-console.log(checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014'), true);
-console.log(checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014'), false);
+console.log(
+  checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014'), true);
+console.log(
+  checkCoupon('123a', '123', 'September 5, 2014', 'October 1, 2014'), false);
