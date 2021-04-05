@@ -9,7 +9,7 @@ function prefill(amount, value) {
 
   if (!value) {
     return new Array(amount).fill('undefined')
-  } else if (amount === 0) {
+  } else if (amount === 0 || amount === '0') {
     return []
   } else if (!Number.isInteger(numAmount)) {
     throw new TypeError(`${amount} is invalid`);
