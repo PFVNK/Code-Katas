@@ -7,11 +7,10 @@ function sumConsecutives(s) {
   let summed = []
 
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === s[i + 1]) {
-      current += s[i]
-    } else if (s[i] !== s[i + 1] && s[i] !== s[i - 1]) {
+    current += s[i]
+    if (s[i] !== s[i + 1]) {
       summed.push(current)
-      summed.push(s[i])
+      current = 0
     }
   }
 
