@@ -3,10 +3,21 @@
 
 
 function toUnderscore(string) {
+  if (string === Number(string)) return string.toString()
+
+  let underStr = []
+
   for (let i = 0; i < string.length; i++) {
     let letter = string[i]
-
+    if (letter === letter.toLowerCase()) {
+      underStr.push(letter)
+    } else if (letter === letter.toUpperCase()) {
+      underStr.push('_')
+      underStr.push(letter.toLowerCase())
+    }
   }
+
+  return underStr.join('').substring(1)
 }
 
 
