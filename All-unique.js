@@ -2,25 +2,40 @@
 
 
 
+// function hasUniqueChars(str) {
+//   let letters = {}
+
+//   for (let i = 0; i < str.length; i++) {
+//     let letter = str[i]
+//     if (letters[letter]) {
+//       letters[letter]++
+//     } else {
+//       letters[letter] = 1
+//     }
+//   }
+
+//   console.log(letters)
+
+//   for (const [key, value] of Object.entries(letters)) {
+//     if (value > 1) {
+//       return false
+//     } else {
+//       return true
+//     }
+//   }
+// }
+
 function hasUniqueChars(str) {
-  let letters = {}
-
-  for (let i = 0; i < str.length; i++) {
-    let letter = str[i]
-    if (letters[letter]) {
-      letters[letter]++
+  var unique = {};
+  for (var i = 0; i < str.length; i++) {
+    if (unique[str[i]] != null) {
+      unique[str[i]] = 1;
+      return false;
     } else {
-      letters[letter] = 1
+      unique[str[i]] = 0;
     }
   }
-
-  for (const [key, value] of Object.entries(letters)) {
-    if (value > 1) {
-      return false
-    } else {
-      return true
-    }
-  }
+  return true;
 }
 
 
