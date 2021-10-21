@@ -3,11 +3,10 @@
 
 
 function switcheroo(x) {
-  let split = x.split('')
   let final = []
 
-  for (let i = 0; i < split.length; i++) {
-    let letter = split[i]
+  for (let i = 0; i < x.length; i++) {
+    let letter = x[i]
     if (letter === 'a') {
       final.push('b')
     }
@@ -24,7 +23,13 @@ function switcheroo(x) {
   return final.join('')
 }
 
-
+function switcheroo(x) {
+  return x.split('').map((letter) => {
+    if (letter === 'a') return 'b'
+    if (letter === 'b') return 'a'
+    if (letter === 'c') return 'c'
+  }).join('')
+}
 
 console.log(switcheroo('abc'), 'bac');
 console.log(switcheroo('aaabcccbaaa'), 'bbbacccabbb');
