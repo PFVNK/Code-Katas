@@ -2,12 +2,16 @@
 
 
 
-function bump(x) {
-  if (x.replaceAll('_', '').length >= 15) {
-    return 'Car Dead'
-  }
+// function bump(x) {
+//   if (x.replaceAll('_', '').length >= 15) {
+//     return 'Car Dead'
+//   }
 
-  return 'Woohoo!'
+//   return 'Woohoo!'
+// }
+
+function bump(x) {
+  return x.split('_').join('').length >= 15 ? 'Car Dead' : 'Woohoo!'
 }
 
 
