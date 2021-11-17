@@ -3,7 +3,7 @@
 
 
 function unusualFive() {
-  return String.fromCharCode(Enquiry)
+  return 'Hello'.length
 }
 
 
