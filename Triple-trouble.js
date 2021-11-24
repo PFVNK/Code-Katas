@@ -4,34 +4,20 @@
 
 
 
-function tripledouble(num1, num2) {
-  num1 = num1.toString();
-  num2 = num2.toString();
+function tripleTrouble(one, two, three) {
+  let str = []
 
-  for (var j = 0; j < num1.length; j++) {
-    digit = num1[j];
-    for (var i = 0; i <= num1.length - 2; i++) {
-      if ((num1.charAt(i) === digit) &&
-        (num1.charAt(i + 1) === digit) &&
-        (num1.charAt(i + 2) === digit)) {
-
-        for (var k = 0; k < num2.length - 1; k++) {
-          if ((num2.charAt(k) === digit) &&
-            (num2.charAt(k + 1) === digit)) {
-            return 1;
-          }
-        }
-      }
-    }
+  for (let i = 0; i < one.length; i++) {
+    str.push(one[i], two[i], three[i])
   }
-  return 0;
+
+  return str.join('')
 }
 
 
 
-console.log(tripledouble(451999277, 41177722899), 1);
-console.log(tripledouble(1222345, 12345), 0);
-console.log(tripledouble(12345, 12345), 0);
-console.log(tripledouble(666789, 12345667), 1);
-console.log(tripledouble(10560002, 100), 1);
-console.log(tripledouble(1112, 122), 0);
+console.log(tripleTrouble("aaa", "bbb", "ccc"), "abcabcabc");
+console.log(tripleTrouble("aaaaaa", "bbbbbb", "cccccc"), "abcabcabcabcabcabc");
+console.log(tripleTrouble("burn", "reds", "roll"), "brrueordlnsl");
+console.log(tripleTrouble("Sea", "urn", "pms"), "Supermans");
+console.log(tripleTrouble("LLh", "euo", "xtr"), "LexLuthor");
