@@ -3,10 +3,15 @@
 
 
 var findDigit = function (num, nth) {
-  num = Math.abs(num).toString().split('')
-  console.log(num)
-  if (nth < 0) return -1
+  if (nth <= 0) return -1
 
+  let number = Math.abs(num).toString()
+
+  if (nth > number.length) {
+    return 0
+  } else {
+    return number.charAt(number.length - nth);
+  }
 }
 
 
