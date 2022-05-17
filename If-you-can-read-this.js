@@ -19,6 +19,18 @@ function to_nato(words) {
   return nato.join(' ')
 }
 
+function to_nato(words) {
+  let solution = []
+
+  for (const letter in [...words.toLowerCase()]) {
+    if (letter !== ' ') {
+      solution.push(NATO[letter] || letter)
+    }
+  }
+
+  return solution.join(' ')
+}
+
 
 
 console.log(
